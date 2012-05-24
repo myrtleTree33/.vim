@@ -13,3 +13,21 @@
 [submodule "bundle/pyflakes-vim"]
 	path = bundle/pyflakes-vim
 	url = https://github.com/pyflakes/pyflakes.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/showmarks"]
+	path = bundle/showmarks
+	url = https://github.com/vim-scripts/ShowMarks.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/tasklist"]
+	path = bundle/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
