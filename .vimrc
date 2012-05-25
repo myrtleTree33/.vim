@@ -82,14 +82,22 @@ inoremap []     []
 
 " COMPILE FUNCTIONS-----------------------
 " Keybindings for code compilation
-" compiling using F8
+
+"running python programs
+map <F7> : call RunPython()<CR>
+func! RunPython()
+    exec "w"
+    exec "!python %"
+endfunc
+
+" compiling c++ programs through g++ using F8  
 map <F8> : call CompileGpp()<CR>
 func! CompileGpp()
 	exec "w"
 	exec "!g++ % -o %<"
 endfunc
 
-" Compile and execute using F9
+" Compile and execute c++ programs using F9
 map <F9> :call CompileRunGpp()<CR>
 func! CompileRunGpp()
 	exec "w"
@@ -97,6 +105,24 @@ func! CompileRunGpp()
 	exec "! ./%<"
 endfunc
 " ----------------------------------------
+
+
+" Omnicomplete stuff----------------------
+" map supertab plugin tab key to contextual omnicomplete
+let g:SuperTabDefaultCompletionType = "context"
+
+" set prompt to longest list
+set completeopt+=longest,menuone
+
+" remap the <enter> key to a contextual one
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" keep prompt menu selected even when typing entry
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : <C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' : <C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"-----------------------------------------
+
 
 " Set highlighting search mode
 set hlsearch
@@ -110,9 +136,11 @@ set incsearch
 " Create tempfile backup to prevent file losses if file not written properly
 set writebackup
 
+" Write buffer through sudo using w!!
+cnoreabbrev w!! w !sudo tee % >/dev/null
+
 " KEY MAPPINGS
 nmap        T			:TaskList<CR>
 nnoremap    P 	    		:TagbarToggle<CR>
-
 
 
