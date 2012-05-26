@@ -64,20 +64,20 @@ set foldlevel=99
 " key again after the open brace, Vim won't insert anything extra,
 " you'll just get a single open brace. Finally, if you quickly
 " type an open and close brace, Vim will not do anything special.
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+" inoremap {      {}<Left>
+" inoremap {<CR>  {<CR>}<Esc>O
+" inoremap {{     {
+" inoremap {}     {}
 
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
+" inoremap (      ()<Left>
+" inoremap (<CR>  (<CR>)<Esc>O
+" inoremap ((     (
+" inoremap ()     ()
 
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
+" inoremap [      []<Left>
+" inoremap [<CR>  [<CR>]<Esc>O
+" inoremap [[     [
+" inoremap []     []
 
 
 " COMPILE FUNCTIONS-----------------------
