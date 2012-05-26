@@ -124,6 +124,17 @@ set completeopt+=longest,menuone
 "-----------------------------------------
 
 
+"-----------------------------------------
+" Doxygen toolkit stuff - makes creating doxygen tag comments VERY FAST
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="TONG Haowen Joel"
+let g:DoxygenToolkit_licenseTag="Copyright (c) <2012> <TONG Haowen Joel> \n \nPermission is hereby granted, free of charge, to any person \nobtaining a copy of this software and associated documentation \nfiles (the \"Software\"), to deal in the Software without \nrestriction, including without limitation the rights to use, \ncopy, modify, merge, publish, distribute, sublicense, and/or sell \ncopies of the Software, and to permit persons to whom the \nSoftware is furnished to do so, subject to the following \nconditions: \n \nThe above copyright notice and this permission notice shall be \n included in all copies or substantial portions of the Software.  \n \nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES \nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND \nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT \nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, \nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING \nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR \nOTHER DEALINGS IN THE SOFTWARE."    " Do not end this line with <Enter>
+" -------------------------------------
+
 " Set highlighting search mode
 set hlsearch
 
