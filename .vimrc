@@ -1,3 +1,5 @@
+set nocp
+call pathogen#infect()
 " For Pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()					" generate helptags for everything in 'runtimepath'
