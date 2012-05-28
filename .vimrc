@@ -55,6 +55,13 @@ colo wombat
 set foldmethod=indent
 set foldlevel=99
 
+" set backspace to work like normal backspace
+set backspace=indent,eol,start
+
+" prompt for wildmenu even when typing buffers
+set wildmode=longest:full
+set wildmenu
+
 " autocomplete Parenthesis
 " When you type an open brace, this will automatically
 " insert a closing brace on the same line, after the cursor.
@@ -144,6 +151,9 @@ set showcmd
 " Search pattern while typing
 set incsearch
 
+" Ignore case while searching
+set ignorecase
+
 " Create tempfile backup to prevent file losses if file not written properly
 set writebackup
 
@@ -151,6 +161,7 @@ set writebackup
 cnoreabbrev w!! w !sudo tee % >/dev/null
 
 " KEY MAPPINGS
+set                             pastetoggle=<F11>       "so everything is pasted correctly
 nmap        T			:TaskList<CR>
 nnoremap    P 	    		:TagbarToggle<CR>
 
