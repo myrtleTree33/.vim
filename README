@@ -70,3 +70,15 @@ INSTALLATION:
     4. start script.
     5. For additional shortcuts and help, look inside .vimrc and check the
     online documentation for each submodule.
+
+    OR run the following commands:
+        
+        sudo apt get install git vim vim-gnome vim-doc vim-common pyflakes
+        git clone git@github.com:toiletfreak/.vim.git ~/.vim
+        ln -s ~/.vim/.vimrc ~/.vimrc
+        cd .vim
+        git submodule init
+        git submodule update
+
+    You should have the the working vim and .vim folder.
+
