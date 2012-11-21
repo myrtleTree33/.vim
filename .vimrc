@@ -7,6 +7,9 @@ filetype off							" needs to be off for Pathogen to load properly
 filetype plugin indent on
 filetype on
 
+" for snipmate-snippets loading
+let g:snippets_dir="~/.vim/bundle/snipmate-snippets/snippets"
+
 " for syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -33,6 +36,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType cpp set omnifunc=ccomplete#CompleteCpp
+
+" vim does not recognize latex files by default!
+let g:tex_flavor="latex"
 
 " remap omni-complete keybindings C-X C-O to C-<space>
 inoremap <C-space> <C-x><C-o>
@@ -113,6 +119,13 @@ func! CompileRunGpp()
 	exec "!g++ % -o %<"
 	exec "! ./%<"
 endfunc
+
+" compiling latex docs using latex compiler 
+" remap omni-complete keybindings C-X C-O to C-<space>
+map <F5> <leader>ll
+
+" Compile and execute c++ programs using F9
+map <F6> <leader>lv
 " ----------------------------------------
 
 
