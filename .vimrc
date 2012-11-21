@@ -10,6 +10,12 @@ filetype on
 " for snipmate-snippets loading
 let g:snippets_dir="~/.vim/bundle/snipmate-snippets/snippets"
 
+" for auto omni-complete (including latex) using neocomplcache
+" NOTE: MIGHT SLOW PC.  SET TO 0 IF UNDESIRED.
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_camel_case_completion = 1 
+let g:neocomplcache_min_syntax_length = 3 
+
 " for syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -131,7 +137,8 @@ map <F6> <leader>lv
 
 " Omnicomplete stuff----------------------
 " map supertab plugin tab key to contextual omnicomplete
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " set prompt to longest list
 set completeopt+=longest,menuone
