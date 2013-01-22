@@ -43,6 +43,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType cpp set omnifunc=ccomplete#CompleteCpp
 
+" for C0 filetype
+au BufRead,BufNewFile *.c0 set filetype=c
+
 " vim does not recognize latex files by default!
 let g:tex_flavor="latex"
 
@@ -66,7 +69,7 @@ syntax on
 colo wombat
 
 " for code folding
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 
 " set backspace to work like normal backspace
@@ -124,6 +127,12 @@ func! CompileRunGpp()
 	exec "w"
 	exec "!g++ % -o %<"
 	exec "! ./%<"
+endfunc
+
+" Compile and execute c0 programs using F4
+map <F4> :call CompileRunCc0()<CR>
+func! CompileRunCc0()
+    exec "w | !/home/joel/Documents/tarballs/cc0/bin/cc0 -d % -o %< && ./%<"
 endfunc
 
 " compiling latex docs using latex compiler 
