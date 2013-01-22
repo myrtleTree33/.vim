@@ -2,8 +2,8 @@ set nocp
 call pathogen#infect()
 " For Pathogen
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()					" generate helptags for everything in 'runtimepath'
-filetype off							" needs to be off for Pathogen to load properly
+call pathogen#helptags()	" generate helptags for everything in 'runtimepath'
+filetype off " needs to be off for Pathogen to load properly
 filetype plugin indent on
 filetype on
 
@@ -11,10 +11,10 @@ filetype on
 let g:snippets_dir="~/.vim/bundle/snipmate-snippets/snippets"
 
 " for auto omni-complete (including latex) using neocomplcache
-" NOTE: MIGHT SLOW PC.  SET TO 0 IF UNDESIRED.
+" NOTE: MIGHT SLOW PC. SET TO 0 IF UNDESIRED.
 let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_camel_case_completion = 1 
-let g:neocomplcache_min_syntax_length = 3 
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_min_syntax_length = 3
 
 " for syntastic
 set statusline+=%#warningmsg#
@@ -24,11 +24,14 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checker = 'pyflakes'
 
+" for vimplate
+"let g:Vimplate='~/.vim/bundle/vimplate/vimplate'
+
 " For minibufexpl
-let g:miniBufExplMapWindowNavVim 	= 1
-let g:miniBufExplMapWindowNavArrows 	= 1
-let g:miniBufExplMapCTabSwitchBufs 	= 1
-let g:miniBufExplModSelTarget 		= 1 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 " For Ctags
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
@@ -88,20 +91,20 @@ set wildmenu
 " key again after the open brace, Vim won't insert anything extra,
 " you'll just get a single open brace. Finally, if you quickly
 " type an open and close brace, Vim will not do anything special.
-" inoremap {      {}<Left>
-" inoremap {<CR>  {<CR>}<Esc>O
-" inoremap {{     {
-" inoremap {}     {}
+" inoremap { {}<Left>
+" inoremap {<CR> {<CR>}<Esc>O
+" inoremap {{ {
+" inoremap {} {}
 
-" inoremap (      ()<Left>
-" inoremap (<CR>  (<CR>)<Esc>O
-" inoremap ((     (
-" inoremap ()     ()
+" inoremap ( ()<Left>
+" inoremap (<CR> (<CR>)<Esc>O
+" inoremap (( (
+" inoremap () ()
 
-" inoremap [      []<Left>
-" inoremap [<CR>  [<CR>]<Esc>O
-" inoremap [[     [
-" inoremap []     []
+" inoremap [ []<Left>
+" inoremap [<CR> [<CR>]<Esc>O
+" inoremap [[ [
+" inoremap [] []
 
 
 " COMPILE FUNCTIONS-----------------------
@@ -114,19 +117,19 @@ func! RunPython()
     exec "!python %"
 endfunc
 
-" compiling c++ programs through g++ using F8  
+" compiling c++ programs through g++ using F8
 map <F8> : call CompileGpp()<CR>
 func! CompileGpp()
-	exec "w"
-	exec "!g++ % -o %<"
+exec "w"
+exec "!g++ % -o %<"
 endfunc
 
 " Compile and execute c++ programs using F9
 map <F9> :call CompileRunGpp()<CR>
 func! CompileRunGpp()
-	exec "w"
-	exec "!g++ % -o %<"
-	exec "! ./%<"
+exec "w"
+exec "!g++ % -o %<"
+exec "! ./%<"
 endfunc
 
 " Compile and execute c0 programs using F4
@@ -135,7 +138,7 @@ func! CompileRunCc0()
     exec "w | !/home/joel/Documents/tarballs/cc0/bin/cc0 -d % -o %< && ./%<"
 endfunc
 
-" compiling latex docs using latex compiler 
+" compiling latex docs using latex compiler
 " remap omni-complete keybindings C-X C-O to C-<space>
 map <F5> <leader>ll
 
@@ -164,13 +167,13 @@ set completeopt+=longest,menuone
 
 "-----------------------------------------
 " Doxygen toolkit stuff - makes creating doxygen tag comments VERY FAST
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_briefTag_pre="@Synopsis "
 let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_returnTag="@Returns "
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="TONG Haowen Joel"
-let g:DoxygenToolkit_licenseTag="Copyright (c) <2012> <TONG Haowen Joel> \n \nPermission is hereby granted, free of charge, to any person \nobtaining a copy of this software and associated documentation \nfiles (the \"Software\"), to deal in the Software without \nrestriction, including without limitation the rights to use, \ncopy, modify, merge, publish, distribute, sublicense, and/or sell \ncopies of the Software, and to permit persons to whom the \nSoftware is furnished to do so, subject to the following \nconditions: \n \nThe above copyright notice and this permission notice shall be \n included in all copies or substantial portions of the Software.  \n \nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES \nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND \nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT \nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, \nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING \nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR \nOTHER DEALINGS IN THE SOFTWARE."    " Do not end this line with <Enter>
+let g:DoxygenToolkit_licenseTag="Copyright (c) <2012> <TONG Haowen Joel> \n \nPermission is hereby granted, free of charge, to any person \nobtaining a copy of this software and associated documentation \nfiles (the \"Software\"), to deal in the Software without \nrestriction, including without limitation the rights to use, \ncopy, modify, merge, publish, distribute, sublicense, and/or sell \ncopies of the Software, and to permit persons to whom the \nSoftware is furnished to do so, subject to the following \nconditions: \n \nThe above copyright notice and this permission notice shall be \n included in all copies or substantial portions of the Software. \n \nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES \nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND \nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT \nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, \nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING \nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR \nOTHER DEALINGS IN THE SOFTWARE." " Do not end this line with <Enter>
 " -------------------------------------
 
 " Set highlighting search mode
@@ -192,8 +195,6 @@ set writebackup
 cnoreabbrev w!! w !sudo tee % >/dev/null
 
 " KEY MAPPINGS
-set                             pastetoggle=<F11>       "so everything is pasted correctly
-nmap        T			:TaskList<CR>
-nnoremap    P 	    		:TagbarToggle<CR>
-
-
+set pastetoggle=<F11> "so everything is pasted correctly
+nmap T :TaskList<CR>
+nnoremap P :TagbarToggle<CR>
