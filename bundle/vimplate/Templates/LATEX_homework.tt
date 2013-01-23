@@ -1,0 +1,75 @@
+[% title=input('Title: ')
+   tfsize=choice('typeface size: ', '10pt', '11pt', '12pt')
+   titlepg=choice('Include title page?: ', 'notitlepage', 'titlepage')
+   side=choice('side layout: ', 'oneside', 'twoside')
+-%]
+%-------------------------------------------------------
+% @file         [% title %]
+% @Synopsis 
+% @author       [% user.firstname %] [% user.lastname %] <[% user.mail %]>
+% @version      1.00
+% @date         [% date('%c') %]
+%-------------------------------------------------------
+
+\documentclass[letterpaper, [% titlepg %], [% tfsize %],[% side %]]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath} 	
+\usepackage{amssymb} 	
+\usepackage{graphicx}				% for graphics
+\usepackage{listings}				% for typing code
+\usepackage{courier}				% monospace font
+\usepackage{color}				% syntax highlighting
+\usepackage[usenames,dvipsnames]{xcolor}	% For xterm colors
+\usepackage[margin=1.0in]{geometry}
+\usepackage{pdfpages}				% for loading PDF
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+% for loading schematicss
+%\graphicspath{{./img/tut2/}{./img/tut3/}}
+
+% source code listing settings
+\lstset{
+    basicstyle=\footnotesize\ttfamily, % font: Courier
+    language=C++, % language (see listings package for list)
+    showspaces=false, % show space characters
+    showstringspaces=false, % show space characters in strings
+    showtabs=false, % show tab characters
+    breaklines=true, % break long lines that go off the page
+    tabsize=2, % size of tabs
+    numbers=left, % line numbers on the left
+    numbersep=15pt,% space between line numbers and lines
+    numberstyle=\footnotesize\ttfamily\color{Fuchsia}, 
+    % line number font: courier
+    title=\footnotesize\ttfamily\lstname, % title font: Courier
+    commentstyle=\color{MidnightBlue},
+    keywordstyle=\color{Magenta},
+    stringstyle=\color{RedOrange}
+}
+
+\title{[% title %]}
+\author{[% user.firstname %] [% user.lastname %]}
+\date{[% date('%c') %]}
+
+\begin{document}
+% Create horizontal rule command with 1 argument of height 
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 
+
+% Header stuff
+\pagestyle{head}
+\headrule \header{\textbf{15-122 Homework 2}}{}{\textbf{Page \thepage\  of \numpages}}
+
+% Custom title page
+\noindent\parbox{\linewidth}{%
+\parbox{.7\linewidth}{\fontsize{18}{12}\selectfont\textbf{\thetitle}}\hfill%
+\parbox{.25\linewidth}{\fontsize{12}{14}\selectfont\raggedleft\thedate\\\theauthor%
+\parbox{\linewidth}{\vspace{0.45in}}
+}}
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+
+% Begin here-------------------------------------------
+\section{section starts here}
+
+\end{document}

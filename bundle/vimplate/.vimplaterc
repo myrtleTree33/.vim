@@ -1,0 +1,30 @@
+# This is an example configuration.
+# please see: http://napali.ch/vimplate
+
+# you can use $Config::opt instead command options:
+#   -user=<user> -dir=<dir>
+$Config::opt = {
+                  dir  => '/home/joel/.vim/bundle/vimplate/Templates',
+                  user => 'joel',
+};
+
+# we need $Config::user with the option -user=<name>
+$Config::user = {
+                   joel  => {
+                                      firstname => 'Joel Haowen',
+                                      lastname  => 'Tong',
+                                      mail      => 'me [at] joeltong [dot] org',
+                                      etc       => '...',
+                   },
+                   otherUser   => {
+                                      firstname => 'otherFirstname',
+                                      lastname  => 'otherLastname',
+                                      mail      => 'otherMail@example.org',
+                   },
+};
+
+# use $Config::var for your own variables or subroutines
+$Config::var = {
+                 yourArray => [ 'Perl', 'C', 'C++' ],
+                 example   => sub{ time },
+};
