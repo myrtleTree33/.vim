@@ -117,19 +117,17 @@ func! RunPython()
     exec "!python %"
 endfunc
 
-" compiling c++ programs through g++ using F8
-map <F8> : call CompileGpp()<CR>
-func! CompileGpp()
-exec "w"
-exec "!g++ % -o %<"
-endfunc
-
 " Compile and execute c++ programs using F9
 map <F9> :call CompileRunGpp()<CR>
 func! CompileRunGpp()
 exec "w"
-exec "!g++ % -o %<"
-exec "! ./%<"
+exec "!g++ % -o %< && ./%<"
+endfunc
+
+" Compile and execute all c++ files in common folder using F8
+map <F8> :call CompileRunGppAll()<CR>
+func! CompileRunGppAll()
+exec "w | !g++ *.h *.cpp -o %< && ./%<"
 endfunc
 
 " Compile and execute c0 programs using F4
@@ -144,6 +142,13 @@ map <F5> <leader>ll
 
 " Compile and execute c++ programs using F9
 map <F6> <leader>lv
+
+" Convert tabs to spaces in program
+map <F2> :call TabsToSpaces()<CR>
+func! TabsToSpaces()
+    exec "set expandtab | set tabstop=4 | set shiftwidth=4"
+endfunc
+
 " ----------------------------------------
 
 
@@ -167,12 +172,12 @@ set completeopt+=longest,menuone
 
 "-----------------------------------------
 " Doxygen toolkit stuff - makes creating doxygen tag comments VERY FAST
-let g:DoxygenToolkit_briefTag_pre="@Synopsis "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="TONG Haowen Joel"
+" let g:DoxygenToolkit_briefTag_pre="@"
+" let g:DoxygenToolkit_paramTag_pre="@Param "
+" let g:DoxygenToolkit_returnTag="@Returns "
+let g:DoxygenToolkit_blockHeader="----------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Joel Haowen TONG"
 let g:DoxygenToolkit_licenseTag="Copyright (c) <2012> <TONG Haowen Joel> \n \nPermission is hereby granted, free of charge, to any person \nobtaining a copy of this software and associated documentation \nfiles (the \"Software\"), to deal in the Software without \nrestriction, including without limitation the rights to use, \ncopy, modify, merge, publish, distribute, sublicense, and/or sell \ncopies of the Software, and to permit persons to whom the \nSoftware is furnished to do so, subject to the following \nconditions: \n \nThe above copyright notice and this permission notice shall be \n included in all copies or substantial portions of the Software. \n \nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES \nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND \nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT \nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, \nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING \nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR \nOTHER DEALINGS IN THE SOFTWARE." " Do not end this line with <Enter>
 " -------------------------------------
 
@@ -191,8 +196,63 @@ set ignorecase
 " Create tempfile backup to prevent file losses if file not written properly
 set writebackup
 
+
+" Fswitch plugins for cpp ------------------
+" Switch to the file and load it into the current window
+nmap <silent> <Leader>of :FSHere<cr>
+
+"  Switch to the file and load it into the window on the right 
+nmap <silent> <Leader>ol :FSRight<cr>
+
+" Switch to the file and load it into a new window split on the right 
+nmap <silent> <Leader>oL :FSSplitRight<cr>
+
+" Switch to the file and load it into the window on the left 
+nmap <silent> <Leader>oh :FSLeft<cr>
+
+" Switch to the file and load it into a new window split on the left 
+nmap <silent> <Leader>oH :FSSplitLeft<cr>
+
+" Switch to the file and load it into the window above 
+nmap <silent> <Leader>ok :FSAbove<cr>
+
+" Switch to the file and load it into a new window split above 
+nmap <silent> <Leader>oK :FSSplitAbove<cr>
+
+" Switch to the file and load it into the window below 
+nmap <silent> <Leader>oj :FSBelow<cr>
+
+" Switch to the file and load it into a new window split below 
+nmap <silent> <Leader>oJ :FSSplitBelow<cr>
+" End Fswitch plugins for cpp ----------------
+
+
+" Protodef plugin for cpp / h files -----------
+
+" Location of pullproto.pl for plugin to work
+let g:protodefprotogetter='./bundle/protodef/pullproto.pl'
+
+
+let g:protodefctagsexe='/usr/local/bin/ctags'
+
+" Generate .cpp gile from .h normally
+nmap <buffer> <silent> <leader> ,YK
+
+" Generate .cpp file from .h without namespace definition
+nmap <buffer> <silent> <leader> ,YN
+"----------------------------------------------
+
+
 " Write buffer through sudo using w!!
 cnoreabbrev w!! w !sudo tee % >/dev/null
+
+
+" For using Arduino IDE in vim --------------------
+" Detect filetypes
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+" End for using Arduino IDE in vim ----------------
+
 
 " KEY MAPPINGS
 set pastetoggle=<F11> "so everything is pasted correctly

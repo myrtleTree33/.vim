@@ -30,6 +30,9 @@
 % for loading schematicss
 %\graphicspath{{./img/tut2/}{./img/tut3/}}
 
+% New commands
+\newcommand{\st}{{\text{\huge {.}}}\;}
+
 % source code listing settings
 \lstset{
     basicstyle=\footnotesize\ttfamily, % font: Courier
@@ -59,7 +62,7 @@
 
 % Header stuff
 \pagestyle{head}
-\headrule \header{\textbf{15-122 Homework 2}}{}{\textbf{Page \thepage\  of \numpages}}
+\headrule \header{\textbf{[% title %], [% date('%c') %]}}{}{\textbf{Page \thepage\  of \numpages}}
 
 % Custom title page
 \noindent\parbox{\linewidth}{%

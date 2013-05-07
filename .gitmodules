@@ -85,3 +85,21 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/fswitch"]
+	path = bundle/fswitch
+	url = git@github.com:derekwyatt/vim-fswitch.git
+[submodule "bundle/protodef"]
+	path = bundle/protodef
+	url = git@github.com:derekwyatt/vim-protodef.git
+[submodule "bundle/cimpl"]
+	path = bundle/cimpl
+	url = git@github.com:vim-scripts/cimpl.git
+[submodule "bundle/ccimpl"]
+	path = bundle/ccimpl
+	url = git@github.com:vim-scripts/ccimpl.vim.git
+[submodule "bundle/a"]
+	path = bundle/a
+	url = git@github.com:vim-scripts/a.vim.git
+[submodule "bundle/arduino-vim"]
+	path = bundle/arduino-vim
+	url = https://github.com/tclem/vim-arduino.git
