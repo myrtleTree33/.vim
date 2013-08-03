@@ -103,3 +103,6 @@
 [submodule "bundle/arduino-vim"]
 	path = bundle/arduino-vim
 	url = https://github.com/tclem/vim-arduino.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git

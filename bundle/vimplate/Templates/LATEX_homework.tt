@@ -27,11 +27,45 @@
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 
+% For easier reading 
+\usepackage[sc]{mathpazo}
+%\linespread{1.61803}
+\linespread{1.2135}
+
+% For appendices
+\usepackage[toc,page]{appendix}
+
+\usepackage{rotating}
+
+% for micro symbol
+\usepackage{upgreek}
+
 % for loading schematicss
 %\graphicspath{{./img/tut2/}{./img/tut3/}}
 
 % New commands
 \newcommand{\st}{{\text{\huge {.}}}\;}
+\newcommand{\Vcc}{\texttt{Vcc\;}}
+\newcommand{\high}{\texttt{HIGH\;}}
+\newcommand{\low}{\texttt{LOW\;}}
+\newcommand{\true}{\texttt{TRUE\;}}
+\newcommand{\false}{\texttt{FALSE\;}}
+\newcommand{\Start}{\texttt{START\;}}
+
+\newcommand{\andGate}{\texttt{AND\;}}
+\newcommand{\orGate}{\texttt{OR\;}}
+\newcommand{\norGate}{\texttt{NOR\;}}
+\newcommand{\nandGate}{\texttt{NAND\;}}
+\newcommand{\xorGate}{\texttt{XOR\;}}
+\newcommand{\xnorGate}{\texttt{XNOR\;}}
+\newcommand{\notGate}{\texttt{NOT\;}}
+
+\newcommand{\enable}{\texttt{ENABLE\;}}
+
+\newcommand{\clk}{\texttt{CLK\;}}
+\newcommand{\rst}{\texttt{RESET\;}}
+
+\setlength{\parskip}{0.48541cm plus 4mm}
 
 % source code listing settings
 \lstset{
@@ -72,7 +106,22 @@
 }}
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 
+\vspace{-2.0cm}
+
 % Begin here-------------------------------------------
 \section{section starts here}
+
+%\appendix
+%% To remove the header from this page
+%\clearpage
+%\thispagestyle{empty}
+
+%\begin{sidewaystable}
+%\section{Appendix A} % (fold)
+%    \label{sec:Appendix A}
+%    \includegraphics[scale=0.94]{EE2020-D1-schematic}
+%    \end{sidewaystable}
+
+%% section Appendix A (end)
 
 \end{document}

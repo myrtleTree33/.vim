@@ -249,9 +249,23 @@ cnoreabbrev w!! w !sudo tee % >/dev/null
 
 " For using Arduino IDE in vim --------------------
 " Detect filetypes
-au BufRead,BufNewFile *.pde set filetype=arduino
+" au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.pde set filetype=cpp
 au BufRead,BufNewFile *.ino set filetype=arduino
 " End for using Arduino IDE in vim ----------------
+
+" Code folding for Javascript =D
+set foldmethod=syntax
+set foldlevelstart=99
+
+let javaScript_fold=0         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
 
 
 " KEY MAPPINGS
