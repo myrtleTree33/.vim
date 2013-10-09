@@ -16,6 +16,7 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 
+
 " for syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -45,6 +46,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType cpp set omnifunc=ccomplete#CompleteCpp
+autocmd FileType java set omnifunc=javacomplete#Complete
 
 " for C0 filetype
 au BufRead,BufNewFile *.c0 set filetype=c
@@ -69,7 +71,14 @@ set number
 syntax on
 
 "for the color scheme
-colo wombat
+" colo wombat 
+
+" Solarized color scheme.  Does not work very well.
+"syntax on
+"set background=dark 
+"colorscheme solarized
+"se t_Co=16
+"let g:solarized_termcolors=256
 
 " for code folding
 set foldmethod=syntax
@@ -134,6 +143,12 @@ endfunc
 map <F4> :call CompileRunCc0()<CR>
 func! CompileRunCc0()
     exec "w | !/home/joel/Documents/tarballs/cc0/bin/cc0 -d % -o %< && ./%<"
+endfunc
+
+" Run node scripts using F3
+map <F3> :call CompileRunNode()<CR>
+func! CompileRunNode()
+    exec "w | !node %"
 endfunc
 
 " compiling latex docs using latex compiler
@@ -272,3 +287,9 @@ let xml_syntax_folding=1      " XML
 set pastetoggle=<F11> "so everything is pasted correctly
 nmap T :TaskList<CR>
 nnoremap P :TagbarToggle<CR>
+
+" For markdown - .md files recognized as markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" For vim-instant-markdown plugin, LIVE preview
+let g:instant_markdown_slow=1
