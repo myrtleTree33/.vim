@@ -16,6 +16,16 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 
+" for extra whitespace
+" match errorMsg /[^\t]\zs\t\+/
+
+" Match indentation !== space
+match errorMsg /[\t]/
+
+" highlight currently selected line
+set cursorline
+highlight CursorLine term=bold cterm=bold guibg=Grey40
+
 
 " for syntastic
 set statusline+=%#warningmsg#
@@ -293,3 +303,4 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " For vim-instant-markdown plugin, LIVE preview
 let g:instant_markdown_slow=1
+

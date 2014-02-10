@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/joel/repos/cs2103aug-t15-3j/nlp/modelGenerator/type'
+let g:netrw_dirhist_2='/home/joel/repos/cs2103aug-t15-3j/nlp/modelGenerator/output'
+let g:netrw_dirhist_3='/home/joel/Desktop/bla'
+let g:netrw_dirhist_4='/home/joel/repos/cs2103aug-t15-3j/nlp/modelGenerator/type'
+let g:netrw_dirhist_5='/usr/share/nginx'
